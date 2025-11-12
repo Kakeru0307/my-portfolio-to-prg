@@ -1,5 +1,5 @@
 // import { BgmPlayer } from '@/components/BgmPlayer';
-import { PageTransition } from '@/components/PageTransition';
+import { PageTransition } from '../components/PageTransition';
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import { AnimatePresence } from 'framer-motion';

@@ -15,6 +15,10 @@ import { Route as rootRouteImport } from './routes/__root'
 const IndexLazyRouteImport = createFileRoute('/')()
 const RoomIndexLazyRouteImport = createFileRoute('/room/')()
 const ProfileIndexLazyRouteImport = createFileRoute('/profile/')()
+const MusicIndexLazyRouteImport = createFileRoute('/music/')()
+const HiddenStoryIndexLazyRouteImport = createFileRoute('/hiddenStory/')()
+const GameIndexLazyRouteImport = createFileRoute('/game/')()
+const ContactIndexLazyRouteImport = createFileRoute('/contact/')()
 
 const IndexLazyRoute = IndexLazyRouteImport.update({
   id: '/',
@@ -31,33 +35,93 @@ const ProfileIndexLazyRoute = ProfileIndexLazyRouteImport.update({
   path: '/profile/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/profile/index.lazy').then((d) => d.Route))
+const MusicIndexLazyRoute = MusicIndexLazyRouteImport.update({
+  id: '/music/',
+  path: '/music/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/music/index.lazy').then((d) => d.Route))
+const HiddenStoryIndexLazyRoute = HiddenStoryIndexLazyRouteImport.update({
+  id: '/hiddenStory/',
+  path: '/hiddenStory/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/hiddenStory/index.lazy').then((d) => d.Route),
+)
+const GameIndexLazyRoute = GameIndexLazyRouteImport.update({
+  id: '/game/',
+  path: '/game/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/game/index.lazy').then((d) => d.Route))
+const ContactIndexLazyRoute = ContactIndexLazyRouteImport.update({
+  id: '/contact/',
+  path: '/contact/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/contact/index.lazy').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
+  '/contact': typeof ContactIndexLazyRoute
+  '/game': typeof GameIndexLazyRoute
+  '/hiddenStory': typeof HiddenStoryIndexLazyRoute
+  '/music': typeof MusicIndexLazyRoute
   '/profile': typeof ProfileIndexLazyRoute
   '/room': typeof RoomIndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
+  '/contact': typeof ContactIndexLazyRoute
+  '/game': typeof GameIndexLazyRoute
+  '/hiddenStory': typeof HiddenStoryIndexLazyRoute
+  '/music': typeof MusicIndexLazyRoute
   '/profile': typeof ProfileIndexLazyRoute
   '/room': typeof RoomIndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexLazyRoute
+  '/contact/': typeof ContactIndexLazyRoute
+  '/game/': typeof GameIndexLazyRoute
+  '/hiddenStory/': typeof HiddenStoryIndexLazyRoute
+  '/music/': typeof MusicIndexLazyRoute
   '/profile/': typeof ProfileIndexLazyRoute
   '/room/': typeof RoomIndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profile' | '/room'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/game'
+    | '/hiddenStory'
+    | '/music'
+    | '/profile'
+    | '/room'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profile' | '/room'
-  id: '__root__' | '/' | '/profile/' | '/room/'
+  to:
+    | '/'
+    | '/contact'
+    | '/game'
+    | '/hiddenStory'
+    | '/music'
+    | '/profile'
+    | '/room'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact/'
+    | '/game/'
+    | '/hiddenStory/'
+    | '/music/'
+    | '/profile/'
+    | '/room/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
+  ContactIndexLazyRoute: typeof ContactIndexLazyRoute
+  GameIndexLazyRoute: typeof GameIndexLazyRoute
+  HiddenStoryIndexLazyRoute: typeof HiddenStoryIndexLazyRoute
+  MusicIndexLazyRoute: typeof MusicIndexLazyRoute
   ProfileIndexLazyRoute: typeof ProfileIndexLazyRoute
   RoomIndexLazyRoute: typeof RoomIndexLazyRoute
 }
@@ -85,11 +149,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/music/': {
+      id: '/music/'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MusicIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hiddenStory/': {
+      id: '/hiddenStory/'
+      path: '/hiddenStory'
+      fullPath: '/hiddenStory'
+      preLoaderRoute: typeof HiddenStoryIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/game/': {
+      id: '/game/'
+      path: '/game'
+      fullPath: '/game'
+      preLoaderRoute: typeof GameIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact/': {
+      id: '/contact/'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
+  ContactIndexLazyRoute: ContactIndexLazyRoute,
+  GameIndexLazyRoute: GameIndexLazyRoute,
+  HiddenStoryIndexLazyRoute: HiddenStoryIndexLazyRoute,
+  MusicIndexLazyRoute: MusicIndexLazyRoute,
   ProfileIndexLazyRoute: ProfileIndexLazyRoute,
   RoomIndexLazyRoute: RoomIndexLazyRoute,
 }
