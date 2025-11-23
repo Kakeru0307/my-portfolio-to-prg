@@ -26,7 +26,6 @@ export const skills = [
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'Vue.js', icon: SiVuedotjs },
   { name: 'Vite', icon: SiVitess },
-  { name: 'Jest', icon: SiJest },
   { name: 'HTML', icon: FaHtml5 },
   { name: 'CSS', icon: FaCss3Alt },
   { name: 'TailWindCSS', icon: SiTailwindcss },
@@ -35,6 +34,9 @@ export const skills = [
   { name: 'python', icon: SiPython },
 ];
 
+export const GameTypes = [
+  'FPS', 'Simulation', ''
+]
 export const LifeData: Life[] = [
   {
     description: '埼玉県越谷市にて誕生、何の変哲もない生まれだった',
