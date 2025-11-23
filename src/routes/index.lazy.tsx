@@ -13,16 +13,16 @@ const Home = () => {
           鈴木翔の歴史 <br /> ~My history~
         </h1>
         <Link
-          className="flex items-center space-x-2 border-2 p-2 rounded w-1/2 hover: bg-gray-900"
+          className="flex justify-center items-center space-x-2 border-2 p-2 rounded hover: bg-gray-900"
           to="/room"
         >
           <span>▶︎</span>
           <span>冒険をする</span>
         </Link>
-        <div className="grid grid-cols-1 gap-4 mt-8">
+        <div className="flex flex-col mt-8 w-full">
           <ActiveField linkitems={linkItems} />
         </div>
-        <div className="flex items-center space-x-2 border-2 p-2 rounded mt-auto z-20">
+        <div className="flex space-x-2 border-2 p-2">
           <ChatMessage message={message.FirstContact} />
         </div>
       </div>
