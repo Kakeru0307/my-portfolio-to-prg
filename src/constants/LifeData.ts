@@ -7,7 +7,6 @@ import {
   SiVuedotjs,
   SiTailwindcss,
   SiVitess,
-  SiJest,
   SiPnpm,
   SiPython,
 } from 'react-icons/si';
@@ -34,9 +33,7 @@ export const skills = [
   { name: 'python', icon: SiPython },
 ];
 
-export const GameTypes = [
-  'FPS', 'Simulation', ''
-]
+export const GameTypes = ['FPS', 'Simulation', ''];
 export const LifeData: Life[] = [
   {
     description: '埼玉県越谷市にて誕生、何の変哲もない生まれだった',

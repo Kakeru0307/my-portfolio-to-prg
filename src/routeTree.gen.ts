@@ -15,6 +15,7 @@ import { Route as rootRouteImport } from './routes/__root'
 const IndexLazyRouteImport = createFileRoute('/')()
 const RoomIndexLazyRouteImport = createFileRoute('/room/')()
 const ProfileIndexLazyRouteImport = createFileRoute('/profile/')()
+const ProductIndexLazyRouteImport = createFileRoute('/product/')()
 const MusicIndexLazyRouteImport = createFileRoute('/music/')()
 const HiddenStoryIndexLazyRouteImport = createFileRoute('/hiddenStory/')()
 const GameIndexLazyRouteImport = createFileRoute('/game/')()
@@ -35,6 +36,11 @@ const ProfileIndexLazyRoute = ProfileIndexLazyRouteImport.update({
   path: '/profile/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/profile/index.lazy').then((d) => d.Route))
+const ProductIndexLazyRoute = ProductIndexLazyRouteImport.update({
+  id: '/product/',
+  path: '/product/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/product/index.lazy').then((d) => d.Route))
 const MusicIndexLazyRoute = MusicIndexLazyRouteImport.update({
   id: '/music/',
   path: '/music/',
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/game': typeof GameIndexLazyRoute
   '/hiddenStory': typeof HiddenStoryIndexLazyRoute
   '/music': typeof MusicIndexLazyRoute
+  '/product': typeof ProductIndexLazyRoute
   '/profile': typeof ProfileIndexLazyRoute
   '/room': typeof RoomIndexLazyRoute
 }
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/game': typeof GameIndexLazyRoute
   '/hiddenStory': typeof HiddenStoryIndexLazyRoute
   '/music': typeof MusicIndexLazyRoute
+  '/product': typeof ProductIndexLazyRoute
   '/profile': typeof ProfileIndexLazyRoute
   '/room': typeof RoomIndexLazyRoute
 }
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   '/game/': typeof GameIndexLazyRoute
   '/hiddenStory/': typeof HiddenStoryIndexLazyRoute
   '/music/': typeof MusicIndexLazyRoute
+  '/product/': typeof ProductIndexLazyRoute
   '/profile/': typeof ProfileIndexLazyRoute
   '/room/': typeof RoomIndexLazyRoute
 }
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
     | '/game'
     | '/hiddenStory'
     | '/music'
+    | '/product'
     | '/profile'
     | '/room'
   fileRoutesByTo: FileRoutesByTo
@@ -103,6 +113,7 @@ export interface FileRouteTypes {
     | '/game'
     | '/hiddenStory'
     | '/music'
+    | '/product'
     | '/profile'
     | '/room'
   id:
@@ -112,6 +123,7 @@ export interface FileRouteTypes {
     | '/game/'
     | '/hiddenStory/'
     | '/music/'
+    | '/product/'
     | '/profile/'
     | '/room/'
   fileRoutesById: FileRoutesById
@@ -122,6 +134,7 @@ export interface RootRouteChildren {
   GameIndexLazyRoute: typeof GameIndexLazyRoute
   HiddenStoryIndexLazyRoute: typeof HiddenStoryIndexLazyRoute
   MusicIndexLazyRoute: typeof MusicIndexLazyRoute
+  ProductIndexLazyRoute: typeof ProductIndexLazyRoute
   ProfileIndexLazyRoute: typeof ProfileIndexLazyRoute
   RoomIndexLazyRoute: typeof RoomIndexLazyRoute
 }
@@ -147,6 +160,13 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/': {
+      id: '/product/'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/music/': {
@@ -186,6 +206,7 @@ const rootRouteChildren: RootRouteChildren = {
   GameIndexLazyRoute: GameIndexLazyRoute,
   HiddenStoryIndexLazyRoute: HiddenStoryIndexLazyRoute,
   MusicIndexLazyRoute: MusicIndexLazyRoute,
+  ProductIndexLazyRoute: ProductIndexLazyRoute,
   ProfileIndexLazyRoute: ProfileIndexLazyRoute,
   RoomIndexLazyRoute: RoomIndexLazyRoute,
 }
