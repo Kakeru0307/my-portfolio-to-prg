@@ -1,4 +1,3 @@
-// import { BgmPlayer } from '@/components/BgmPlayer';
 import { PageTransition } from '../components/PageTransition';
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
@@ -18,8 +17,13 @@ const RootComponent = () => {
           <Link to="/profile" className="[&.active]:font-bold">
             Profile
           </Link>
+          <Link to="/music" className="[&.active]:font-bold">
+            Music
+          </Link>
+          <Link to="/game" className="[&.active]:font-bold">
+            Game
+          </Link>
         </div>
-        {/* <BgmPlayer src="/bgm/8bit-jo-jokyoku.mp3" /> */}
       </div>
       <hr />
       <AnimatePresence mode="wait">
