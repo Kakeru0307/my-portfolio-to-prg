@@ -31,7 +31,6 @@ const Music = () => {
           <BWOctagon text="Lisa" status="regular" />
           <BWOctagon text="Mrs GreenApple" status="regular" />
           <BWOctagon text="藍井エイル" status="regular" />
-          <BWOctagon text="ANIMA" status="recent" />
           <BWOctagon text="菅原圭" status="recent" />
         </div>
       </div>
@@ -51,10 +50,9 @@ const Music = () => {
           <BWOctagon text="ともに" status="past" />
           <BWOctagon text="クラクラ" status="recent" />
           <BWOctagon text="Courage" status="recent" />
-          <BWOctagon text="Mrs GreenApple" status="regular" />
-          <BWOctagon text="藍井エイル" status="regular" />
           <BWOctagon text="ANIMA" status="recent" />
-          <BWOctagon text="菅原圭" status="recent" />
+          <BWOctagon text="カタオモイ" status="past" />
+          <BWOctagon text="Soranji" status="past" />
         </div>
       </div>
     </div>
