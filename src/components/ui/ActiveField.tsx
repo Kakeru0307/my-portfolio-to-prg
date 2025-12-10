@@ -3,10 +3,10 @@ import { Link } from '@tanstack/react-router';
 import { useState } from 'react';
 
 interface ActiveFieldProps {
-  linkitems: LinkItem[];
+  linkItems: LinkItem[];
 }
 
-const ActiveField = ({ linkitems }: ActiveFieldProps) => {
+const ActiveField = ({ linkItems }: ActiveFieldProps) => {
   const [onTitle, setOnTitle] = useState('');
 
   const handleMouseEnter = (title: string) => {
@@ -18,7 +18,7 @@ const ActiveField = ({ linkitems }: ActiveFieldProps) => {
 
   return (
     <div className="flex flex-col gap-4 w-2/5 mx-auto">
-      {linkitems.map((item) => (
+      {linkItems.map((item) => (
         <div
           key={item.title}
           onMouseEnter={() => handleMouseEnter(item.title)}
