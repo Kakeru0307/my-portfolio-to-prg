@@ -1,6 +1,7 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
 import SafeSurpose from '@/components/SafeSuspense';
 import BWOctagon from '@/components/ui/BWOctagon';
+import Title from '@/components/ui/Title';
 import { useState } from 'react';
 
 function Contact() {
@@ -12,7 +13,7 @@ function Contact() {
   return (
     <SafeSurpose>
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-4xl mt-8">Contact to Me</h1>
+        <Title name="Contact to Me" />
         <form className="flex flex-col text-center w-2/3">
           <label className="text-2xl p-4">お名前</label>
           <input
